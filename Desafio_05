@@ -1,0 +1,88 @@
+#SISTEMA DE PLANEJAMENTO DE ROTINA#
+
+print("===== AVALIAÇÃO DA ROTINA DIÁRIA =====")
+
+pontuacao = 0
+
+#Descanso#
+print("\n ====== DESCANSO ======")
+
+sono_noite = int(input("Horas de sono durante a noite: "))
+repouso_dia = int(input("Horas de descanso durante o dia: "))
+
+if sono_noite >= 7:
+    pontuacao += 2
+elif sono_noite >= 5:
+    pontuacao += 1
+if repouso_dia >= 1:
+    pontuacao += 1
+
+#Atividade Física#
+print("\n ====== Atividade Física ======")
+
+atividade = input("Tipo de atividade física praticada (Academia; Apenas Caminhada; Sedentário): ").lower()
+
+if atividade == "Academia":
+  dias = int(input("Informe quantos dias por semana você treina: "))
+  if dias >= 3:
+      pontuacao += 2
+  else:
+      pontuacao += 1
+elif atividade == "Apenas Caminhada":
+  dias = int(input("Informe quantos dias por semana você caminha: "))
+  if dias >= 3:
+      pontuacao += 2
+  else:
+      pontuacao += 1
+elif atividade == "Sedentário":
+  tempo = input("Está mais de um mês sem praticar atividade física (sim/não): ").lower()
+  if tempo == "sim":
+      pontuacao += 0
+
+#Atividades Diárias#
+
+trabalha = input("Está trabalhando no momento (sim/não): ").lower()
+if trabalha == "sim":
+  horas = int(input("Informe as horas de trabalho por dia: "))
+  if horas >= 6:
+      pontuacao += 2
+  else:
+      pontuacao += 1
+
+estudo = input("Informe se você está na facauldade ou fazendo algum curso (sim/não): ")
+if estudo == "sim":
+  horas_estudo = int(input("Informe as horas de estudos por dia: "))
+  if horas_estudo >= 2:
+      pontuacao += 2
+  else:
+      pontuacao += 1
+
+estudo_casa = int(input("Horas de estudo em casa: "))
+if estudo_casa >= 1:
+    pontuacao += 1
+      
+#Atividades Variadas#
+
+projeto = input("Está trabalhando em algum projeto (sim/não): ").lower()
+if projeto == "sim":
+    fase = input("Em que fase está o projeto: ")
+    pontuacao += 2
+
+leitura = input("Está lendo algum livro (sim/não): ").lower()
+if leitura == "sim":
+    pontuacao += 1
+
+lazer = input("Costuma sair aos fins de semana ou feriado (sim/não): ").lower()
+if lazer == "sim":
+    pontuacao += 1
+
+#Resultado#
+print("\n ====== RESULTADO FINAL ======")
+
+print(f"Pontução: {pontuacao}")
+if pontuacao >= 12:
+    print("ROTINA EQUILIBRADA E ORGANIZADA")
+elif pontuacao >= 7:
+    print("ROTINA DE VIDA COM MUITOS DESAFIOS PARA LIDAR")
+else:
+    print("ATENÇÃO: DIMINUA O RITMO E A CARGA DE ATIVIDADES!")
